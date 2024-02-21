@@ -14,7 +14,7 @@ router.get("/:id", (req, res) => {
 });
 
 // post a new project
-router.post("/:id", (req, res) => {
+router.post("/", (req, res) => {
   res.json({ message: "post a new project" });
 });
 
