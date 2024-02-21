@@ -1,13 +1,21 @@
 require("dotenv").config();
+
 const express = require("express");
+const projectRoutes = require("./routes/projectRoute");
 
 // express app
 const app = express();
 
 // port
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 2000;
 
-// listen for requests
-app.listen(port, (req, res) => {
-  console.log(`listening on port ${port}`);
+// middlewares
+app.use(express.json());
+
+// routes
+app.use("/api/projects", projectRoutes);
+
+// listen on port
+app.listen(port, () => {
+  console.log(`listening on ${port}`);
 });
