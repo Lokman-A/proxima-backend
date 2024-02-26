@@ -41,7 +41,7 @@ const postProject = async (req, res) => {
 
     res.status(200).json(project);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(404).json({ error: err.message });
   }
 };
 
@@ -52,7 +52,7 @@ const deleteProject = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ error: "Invalid project id" });
+    return res.status(404).json({ error: "Invalid project id" });
   }
 
   const project = await Project.findOneAndDelete({ _id: id });
@@ -70,7 +70,7 @@ const updateProject = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ error: "Invalid project ID" });
+    return res.status(404).json({ error: "Invalid project ID" });
   }
 
   const project = await Project.findOneAndUpdate({ _id: id }, { ...data });
