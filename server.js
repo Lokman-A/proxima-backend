@@ -13,7 +13,10 @@ const port = process.env.PORT || 2000;
 // middlewares
 app.use(cors());
 app.use(express.json());
-
+app.use((req, res, next) => {
+  console.log(req.method, req.url);
+  next();
+});
 // routes
 app.use("/api/projects", router);
 
