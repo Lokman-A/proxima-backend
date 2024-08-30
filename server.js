@@ -23,11 +23,11 @@ app.use("/api/projects", router);
 // mongoDB
 // mongoose.set("strictQuery", true); // optional
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(process.env.MONGO_BD)
   .then(() => {
     // listen on port
     app.listen(port, () => {
-      console.log(` listening on port ${port}`);
+      console.log(` listening on port:  http://localhot:${port}`);
     });
   })
   .catch((err) => {
