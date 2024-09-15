@@ -17,6 +17,7 @@ app.use((req, res, next) => {
   console.log(req.method, req.url);
   next();
 });
+
 // routes
 app.use("/api/projects", router);
 
@@ -31,5 +32,5 @@ mongoose
     });
   })
   .catch((err) => {
-    console.log(err);
+    console.log(err.message);
   });
